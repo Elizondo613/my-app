@@ -19,7 +19,7 @@ export function Signup() {
     setError('');
     try {
       await signup(user.email, user.password);
-      navigate("/");
+      navigate("crearCuenta");
     } catch (error) {
       setError(error.message);
     }
