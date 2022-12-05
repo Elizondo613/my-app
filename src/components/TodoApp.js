@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Todo from "./Todo";
-import {useAuth} from '../context/Auth';
+import {useAuth} from '../authentication/Auth';
 import "./TodoApp.css";
 
 export default function TodoApp(){

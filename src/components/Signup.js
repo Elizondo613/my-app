@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import {useAuth} from '../context/Auth';
+import {useAuth} from '../authentication/Auth';
 import {useNavigate} from 'react-router-dom';
 
 export function Signup() {
@@ -21,16 +21,18 @@ export function Signup() {
       await signup(user.email, user.password);
       navigate("crearCuenta");
     } catch (error) {
-      setError(error.message);
+      setError('ALERTA: Usuario o contraseña incorrectos');
     }
   }
   return (
     <div className="Container">
-      <h2 className='Regist'>Registrate</h2>
+      <h2 className='Message'>Registrate</h2>
       {error && <p>{error}</p>}
       <form className = "ContainerForm" onSubmit={handleSubmit}>
-        <input className='EmailL' type="email" name='email'placeholder="Correo" onChange={handleChange}/>
-        <input className='PassL' type="password" name='password' placeholder="Contraseña" onChange={handleChange}/>
+        <p>Correo electrónico: </p>
+        <input className='EmailL' type="email" name='email' onChange={handleChange}/>
+        <p>Contraseña: </p>
+        <input className='PassL' type="password" name='password' onChange={handleChange}/>
         <button className='Button'>Registrar</button>
       </form>
     </div>

@@ -23,6 +23,10 @@
    background-color: #2F7FE7; 
 }
 
+.buttonCreate:hover{
+    background: #A7FFE4;
+}
+
 .todosContainer{
     display: flex;
     flex-direction: column;
@@ -51,9 +55,17 @@
     background-color: #2F7FE7;
 }
 
+.buttonUp:hover, .buttonEdit:hover{
+    background: #A7FFE4;
+}
+
 .buttonDelete{
     border-radius: 4px;
     background-color: #C41B0B;
+}
+
+.buttonDelete:hover{
+    background: #760B0B;
 }
 
 .CloseS{
@@ -62,4 +74,8 @@
     margin-top: 20px;
     margin-left: 200px;
     margin-right: 600px;
+}
+
+.CloseS:hover{
+    background: #760B0B;
 }

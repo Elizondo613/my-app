@@ -1,4 +1,4 @@
-import {useAuth} from "../context/Auth";
+import {useAuth} from "../authentication/Auth";
 import {Navigate} from 'react-router-dom';
 
 export function ProtectRoute({children}){

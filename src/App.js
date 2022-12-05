@@ -3,7 +3,7 @@ import TodoApp from './components/TodoApp';
 import { Routes, Route } from 'react-router-dom';
 import { Login } from './components/Login';
 import { Signup } from './components/Signup.js';
-import {AuthProvider} from './context/Auth';
+import {AuthProvider} from './authentication/Auth';
 import { ProtectRoute } from './components/ProtectRoute';
 
 function App() {
