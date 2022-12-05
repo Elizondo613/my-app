@@ -1,0 +1,41 @@
+.Container{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    flex-direction: column;
+    margin-left: 80px;
+}
+
+.Start{
+    margin-left: 430px;
+}
+
+.ContainerForm{
+    display: flex;
+    gap: 5px;
+}
+
+.EmailL{
+    width: 40%;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.PassL{
+    width: 40%;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+.Button{
+    width: 10%;
+    border-radius: 4px;
+    background-color: #2F7FE7; 
+}
+
+.Referen{
+    margin-top: 10px;
+    margin-left: 440px;
+}

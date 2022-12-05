@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Todo from "./Todo";
+import {useAuth} from '../context/Auth';
 import "./TodoApp.css";
 
 export default function TodoApp(){
     const [title, setTitle] = useState("");
     const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todo')) || []);
+    const {user,logout}=useAuth()
 
     useEffect(() => {
         localStorage.setItem('todo', JSON.stringify(todos))
@@ -16,6 +18,10 @@ export default function TodoApp(){
         setTitle(value);
     }
 
+    const handleLogout = async ()=>{
+        await logout();
+      };
+
     function handleSubmit(e){
         e.preventDefault();
 
@@ -23,6 +29,7 @@ export default function TodoApp(){
             id: crypto.randomUUID(),
             title: title,
             completed: false,
+            usuario: user.uid,
         };
 
         const temp = [...todos];
@@ -48,6 +55,7 @@ export default function TodoApp(){
 
     return (
         <div className="todoContainer">
+            <p>Usuario activo: {user.email}</p>
             <form className="todoCreateForm" onSubmit={handleSubmit}>
                 <input onChange={handleChange} className="todoInput" value={title}/>
                 <input onClick={handleSubmit} type="submit" value = "Crear tarea" className="buttonCreate"/>
@@ -55,11 +63,15 @@ export default function TodoApp(){
 
             <div className="todosContainer">
                 {
-                    todos.map((item) => (
+                    todos.filter(item => item.usuario===user.uid).map((item) => (
                         <Todo key={item.id} item={item} onUpdate={handleUpdate} onDelete={handleDelete}/>
                     ))
                 }
             </div>
+
+            <button className="CloseS" onClick={handleLogout}>
+                Cerrar Sesión
+            </button>
         </div>
     );
 }
