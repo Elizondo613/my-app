@@ -11,7 +11,7 @@ function App() {
     <AuthProvider>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/crearCuenta" element={<Signup />} />
+        <Route path="crearCuenta" element={<Signup />} />
         <Route path="/TodoApp" element={<ProtectRoute> <TodoApp/> </ProtectRoute>}/>
       </Routes>
     </AuthProvider>

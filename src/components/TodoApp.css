@@ -42,6 +42,7 @@
 .todoTitle{
     flex: 1;
     font-size: 20px;
+    margin-right: 350px;
 }
 
 .todoUpdate, .todoInfo{
@@ -78,4 +79,18 @@
 
 .CloseS:hover{
     background: #760B0B;
+}
+
+.buttonComplete{
+    border-radius: 4px;
+    background-color: #23C123;
+}
+
+.buttonComplete:hover{
+    border-radius: 4px;
+    background-color: #139e13;
+}
+
+.todoInfo .true .todoTitle{
+    text-decoration: line-through;
 }

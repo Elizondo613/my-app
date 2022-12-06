@@ -1,6 +1,6 @@
 import {useState} from "react";
 
-export default function Todo({item, onUpdate, onDelete}){
+export default function Todo({item, onUpdate, onDelete, onComplete}){
     const [edit, setEdit] = useState(false);
  
     function FormEdit(){
@@ -18,6 +18,7 @@ export default function Todo({item, onUpdate, onDelete}){
         onUpdate(item.id, newValue)
         setEdit(false)
     }
+
         return (
             <form className="todoUpdate" onSubmit={handleSubmit}>
                 <input type="text" className="todoInput" onChange={handleChange} value={newValue}/>
@@ -28,9 +29,13 @@ export default function Todo({item, onUpdate, onDelete}){
 
     function TodoElement(){
         return <div className="todoInfo">
-                    <span className="todoTitle">{item.title}</span>
+                    <div className={item.completado ? 'true' : ''}>
+                        <span className="todoTitle">{item.title}</span>
+                    </div>
+                    
                     <button className="buttonEdit" onClick={() => setEdit(true)}>Editar</button>
                     <button className="buttonDelete" onClick={(e) => onDelete(item.id)}>Eliminar</button>
+                    <button className="buttonComplete" onClick={() => onComplete(item.id)}>√</button>
             </div>
     }
 

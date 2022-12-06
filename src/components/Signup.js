@@ -19,7 +19,7 @@ export function Signup() {
     setError('');
     try {
       await signup(user.email, user.password);
-      navigate("crearCuenta");
+      navigate("/");
     } catch (error) {
       setError('ALERTA: Usuario o contraseña incorrectos');
     }

@@ -53,6 +53,13 @@ export default function TodoApp(){
         setTodos(temp)
     }
 
+    function handleComplete(id){
+        const temp = [...todos]
+        const item = temp.find(item => item.id === id)
+        item.completado = !item.completado;
+        setTodos(temp);
+    }
+
     return (
         <div className="todoContainer">
             <p>Usuario activo: {user.email}</p>
@@ -64,7 +71,7 @@ export default function TodoApp(){
             <div className="todosContainer">
                 {
                     todos.filter(item => item.usuario===user.uid).map((item) => (
-                        <Todo key={item.id} item={item} onUpdate={handleUpdate} onDelete={handleDelete}/>
+                        <Todo key={item.id} item={item} onUpdate={handleUpdate} onDelete={handleDelete} onComplete={handleComplete}/>
                     ))
                 }
             </div>
